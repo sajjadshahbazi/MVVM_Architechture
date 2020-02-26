@@ -1,9 +1,9 @@
 package com.example.mvvm_architechture.base;
 
-import com.example.mvvm_architechture.domain.LocalService;
-import com.example.mvvm_architechture.domain.LocalServiceImpl;
-import com.example.mvvm_architechture.domain.RemoteService;
-import com.example.mvvm_architechture.domain.RemoteServiceImpl;
+import com.example.mvvm_architechture.domain.LocalData;
+import com.example.mvvm_architechture.domain.LocalDataImpl;
+import com.example.mvvm_architechture.domain.RemoteData;
+import com.example.mvvm_architechture.domain.RemoteDataImpl;
 import com.example.mvvm_architechture.domain.Repository;
 import com.example.mvvm_architechture.domain.RepositoryImpl;
 
@@ -15,7 +15,7 @@ abstract class AppModule {
     @Binds
     abstract Repository bindRepository(RepositoryImpl repository);
     @Binds
-    abstract LocalService bindLocalService(LocalServiceImpl localService);
+    abstract LocalData bindLocalService(LocalDataImpl localService);
     @Binds
-    abstract RemoteService bindRemoteService(RemoteServiceImpl remoteService);
+    abstract RemoteData bindRemoteData(RemoteDataImpl remoteService);
 }

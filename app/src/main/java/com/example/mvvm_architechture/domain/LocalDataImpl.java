@@ -2,8 +2,8 @@ package com.example.mvvm_architechture.domain;
 
 import javax.inject.Inject;
 
-public class LocalServiceImpl implements LocalService {
+public class LocalDataImpl implements LocalData {
     @Inject
-    LocalServiceImpl(){}
+    LocalDataImpl(){}
 
 }

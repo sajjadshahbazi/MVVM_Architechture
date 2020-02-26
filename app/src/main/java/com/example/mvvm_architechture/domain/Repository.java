@@ -1,7 +1,10 @@
 package com.example.mvvm_architechture.domain;
 
-import javax.inject.Inject;
+
+import com.example.mvvm_architechture.domain.repomodels.TransactionsConversationRepoModel;
+
+import io.reactivex.Single;
 
 public interface Repository {
-
+    Single<TransactionsConversationRepoModel> getTransactionsConversation(String lastTime);
 }

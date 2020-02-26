@@ -1,5 +1,5 @@
 package com.example.mvvm_architechture.utils;
 
-public interface Mapper {
-    Object map(Object input);
+public interface Mapper<T, V> {
+    V map(T input);
 }

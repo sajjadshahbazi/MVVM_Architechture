@@ -1,5 +1,6 @@
 package com.example.mvvm_architechture.base;
 
+import com.example.mvvm_architechture.domain.ApiServices;
 import com.example.mvvm_architechture.utils.ConstantsApplication;
 
 import javax.inject.Singleton;
@@ -19,5 +20,11 @@ public class ApplicationModule {
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
+    }
+
+    @Singleton
+    @Provides
+    static ApiServices provideRetrofitService(Retrofit retrofit) {
+        return retrofit.create(ApiServices.class);
     }
 }

@@ -7,8 +7,7 @@ import java.util.List;
 import io.reactivex.Single;
 import retrofit2.http.POST;
 
-public interface RemoteService {
-
+public interface ApiServices {
     @POST("user/home")
-    Single<List<TransactionsConversationServerModel>> getTransactionsConversationServerModel();
+    Single<TransactionsConversationServerModel> getTransactionsConversationServerModel();
 }
