@@ -3,27 +3,28 @@ package com.example.mvvm_architechture.domain.servermodels;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TransactionsConversationServerModel {
         @SerializedName("balance")
         @Expose
-        private Double balance;
+        private Double balance = 0.0;
         @SerializedName("last_get_time")
         @Expose
-        private Integer lastGetTime;
+        private Integer lastGetTime=-1;
         @SerializedName("response_code")
         @Expose
-        private Integer responseCode;
+        private Integer responseCode=-1;
         @SerializedName("response_message")
         @Expose
-        private String responseMessage;
+        private String responseMessage="";
         @SerializedName("response_value")
         @Expose
-        private String responseValue;
+        private String responseValue="";
         @SerializedName("transactions")
         @Expose
-        private List<TransactionServerModel> transactions = null;
+        private List<TransactionServerModel> transactions = new ArrayList();
 
         public Double getBalance() {
         return balance;

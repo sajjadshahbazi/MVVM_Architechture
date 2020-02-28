@@ -7,7 +7,7 @@ import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.mvvm_architechture.viewmodels.transaction.TransactionViewModelImpl;
+import com.example.mvvm_architechture.viewmodels.transaction.TransactionViewModel;
 import com.example.mvvm_architechture.viewmodels.base.ViewModelFactory;
 
 import javax.inject.Inject;
@@ -30,7 +30,7 @@ public abstract class BaseActivity <
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getViewModel(new ViewModelProvider(this, viewModelFactory).get(TransactionViewModelImpl.class));
+        getViewModel(new ViewModelProvider(this, viewModelFactory).get(TransactionViewModel.class));
         setContentView(layoutRes());
         ButterKnife.bind(this);
     }

@@ -3,6 +3,7 @@ package com.example.mvvm_architechture.base;
 
 import android.app.Application;
 import com.example.mvvm_architechture.di.ActivityBindingModule;
+import com.example.mvvm_architechture.di.ApplicationModule;
 import com.example.mvvm_architechture.di.ContextModule;
 import com.example.mvvm_architechture.di.ViewModelModule;
 import javax.inject.Singleton;
@@ -16,7 +17,6 @@ import dagger.android.support.AndroidSupportInjectionModule;
 @Component(modules = {
         ContextModule.class,
         ApplicationModule.class,
-        AppModule.class,
         AndroidSupportInjectionModule.class,
         ActivityBindingModule.class,
         ViewModelModule.class

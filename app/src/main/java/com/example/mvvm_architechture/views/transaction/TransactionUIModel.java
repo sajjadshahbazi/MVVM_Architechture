@@ -1,7 +1,6 @@
-package com.example.mvvm_architechture.domain.repomodels;
+package com.example.mvvm_architechture.views.transaction;
 
-
-public class TransactionRepoModel {
+public class TransactionUIModel {
     private Double amount = 0.0;
     private Integer status = -1;
     private Integer tranId = -1;
@@ -64,5 +63,4 @@ public class TransactionRepoModel {
     }
     public void setUserId(Integer userId) {
         this.userId = userId;
-    }
-}
+    }}

@@ -17,6 +17,6 @@ public class RemoteDataImpl implements RemoteData {
 
     @Override
     public Single<TransactionsConversationServerModel> getRemoteTransactionsConversation(String lastTime) {
-        return apiServices.getTransactionsConversationServerModel();
+        return apiServices.getTransactionsConversationServerModel(lastTime);
     }
 }

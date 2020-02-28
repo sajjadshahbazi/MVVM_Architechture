@@ -5,6 +5,7 @@ import com.example.mvvm_architechture.domain.servermodels.TransactionsConversati
 import com.example.mvvm_architechture.utils.Mapper;
 import javax.inject.Inject;
 import io.reactivex.Single;
+import io.reactivex.functions.Function;
 
 public class RepositoryImpl implements Repository {
     @Inject
@@ -13,12 +14,17 @@ public class RepositoryImpl implements Repository {
     LocalData localService;
     @Inject
     Mapper<TransactionsConversationServerModel, TransactionsConversationRepoModel> transactionsConversationServerRepoMapper;
-
     @Inject
     RepositoryImpl() {}
 
     @Override
     public Single<TransactionsConversationRepoModel> getTransactionsConversation(String lastTime) {
-//        return remoteData.getRemoteTransactionsConversation(lastTime).map(new FunTransactionsConversationRepoModel())
+        return remoteData.getRemoteTransactionsConversation(lastTime).map(new Function<TransactionsConversationServerModel, TransactionsConversationRepoModel>() {
+            @Override
+            public TransactionsConversationRepoModel apply(TransactionsConversationServerModel transactionsConversationServerModel) {
+                return transactionsConversationServerRepoMapper.map(transactionsConversationServerModel);
+            }
+        });
     }
+
 }

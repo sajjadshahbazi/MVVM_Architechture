@@ -1,14 +1,14 @@
-package com.example.mvvm_architechture.domain.repomodels;
+package com.example.mvvm_architechture.views.transaction;
 
-import com.example.mvvm_architechture.domain.servermodels.TransactionServerModel;
 import java.util.List;
 
-public class TransactionsConversationRepoModel {
+public class TransactionsConversationUIModel {
     private Double balance;
     private Integer lastGetTime;
+    private Integer responseCode;
     private String responseMessage;
     private String responseValue;
-    private List<TransactionRepoModel> transactions = null;
+    private List<TransactionUIModel> transactions = null;
 
     public Double getBalance() {
         return balance;
@@ -24,6 +24,14 @@ public class TransactionsConversationRepoModel {
 
     public void setLastGetTime(Integer lastGetTime) {
         this.lastGetTime = lastGetTime;
+    }
+
+    public Integer getResponseCode() {
+        return responseCode;
+    }
+
+    public void setResponseCode(Integer responseCode) {
+        this.responseCode = responseCode;
     }
 
     public String getResponseMessage() {
@@ -42,11 +50,11 @@ public class TransactionsConversationRepoModel {
         this.responseValue = responseValue;
     }
 
-    public List<TransactionRepoModel> getTransactions() {
+    public List<TransactionUIModel> getTransactions() {
         return transactions;
     }
 
-    public void setTransactions(List<TransactionRepoModel> transactions) {
+    public void setTransactions(List<TransactionUIModel> transactions) {
         this.transactions = transactions;
     }
 }
