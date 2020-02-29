@@ -2,9 +2,7 @@ package com.example.mvvm_architechture.di;
 
 import com.example.mvvm_architechture.domain.ApiServices;
 import com.example.mvvm_architechture.utils.ConstantsApplication;
-
 import javax.inject.Singleton;
-
 import dagger.Module;
 import dagger.Provides;
 import retrofit2.Retrofit;

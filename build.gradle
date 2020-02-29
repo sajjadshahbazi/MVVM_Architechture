@@ -75,4 +75,7 @@ ext {
     // okhttp
     okHttpVersion = '3.9.1'
 
+    // epoxy
+    epoxyVersion = '3.9.0'
+
 }

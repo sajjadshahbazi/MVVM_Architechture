@@ -1,9 +1,7 @@
 package com.example.mvvm_architechture.domain;
 
+import com.example.mvvm_architechture.domain.servermodels.LastTime;
 import com.example.mvvm_architechture.domain.servermodels.TransactionsConversationServerModel;
-
-import java.util.List;
-
 import javax.inject.Inject;
 
 import io.reactivex.Single;
@@ -17,6 +15,6 @@ public class RemoteDataImpl implements RemoteData {
 
     @Override
     public Single<TransactionsConversationServerModel> getRemoteTransactionsConversation(String lastTime) {
-        return apiServices.getTransactionsConversationServerModel(lastTime);
+        return apiServices.getTransactionsConversationServerModel(new LastTime(lastTime));
     }
 }

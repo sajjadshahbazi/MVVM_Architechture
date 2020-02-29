@@ -82,4 +82,8 @@ dependencies {
     // ok http
     implementation "com.squareup.okhttp3:okhttp:$rootProject.okHttpVersion"
     implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.okHttpVersion"
+
+    // epoxy
+    implementation "com.airbnb.android:epoxy:$rootProject.epoxyVersion"
+    annotationProcessor "com.airbnb.android:epoxy-processor:$rootProject.epoxyVersion"
 }

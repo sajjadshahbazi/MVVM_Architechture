@@ -17,8 +17,6 @@ import okhttp3.logging.HttpLoggingInterceptor;
 @Module
 public class OkHttpModule {
 
-
-    @JvmStatic
     @Provides
     @Singleton
     HttpLoggingInterceptor provideLoggingInterceptor()  {
@@ -28,7 +26,6 @@ public class OkHttpModule {
     }
 
 
-    @JvmStatic
     @Provides
     @Singleton
     OkHttpClient provideClient(HttpLoggingInterceptor loggingInterceptor)
@@ -41,14 +38,41 @@ public class OkHttpModule {
                 .addInterceptor(new Interceptor() {
                     @Override
                     public Response intercept(Chain chain) throws IOException {
-                        Request request = chain.request();
-                            request = request.newBuilder()
-                                    .addHeader("Authorization", "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE1ODMwMDQ0NzN9.eLV1AjPjH-d_57M02JJfVYlDMsuRT35Wjt4FWXspED0")
-                                    .addHeader("Content-Type", "application/json")
-                                    .build();
-                        return chain.proceed(request);
+//                        Request original = chain.request();
+//                        Request.Builder requestBuilder = original.newBuilder()
+//                                .addHeader("ContentType", "application/json")
+//                                .addHeader("Authorization", "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE1ODMwMDQ0NzN9.eLV1AjPjH-d_57M02JJfVYlDMsuRT35Wjt4FWXspED0");
+//                        Request request = requestBuilder.build();
+//                        return chain.proceed(request);
+                        Request original = chain.request();
+                        Request newRequest = original.newBuilder()
+                                .addHeader("Accept", "application/json")
+                                .addHeader("Authorization", "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE1ODMwNTE5NDB9.B6tvyaGFChKgwJDhIg43TnyLb3LiaoOM1ExWFINIf9A")
+                                .method(original.method(), original.body())
+                                .build();
+                        return chain.proceed(newRequest);
                     }
                 });
+//                .addInterceptor(new Interceptor() {
+//                    @Override
+//                    public Response intercept(Chain chain) throws IOException {
+////                        Request original = chain.request();
+////                        Request.Builder requestBuilder = original.newBuilder()
+////                                .addHeader("ContentType", "application/json")
+////                                .addHeader("Authorization", "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE1ODMwMDQ0NzN9.eLV1AjPjH-d_57M02JJfVYlDMsuRT35Wjt4FWXspED0");
+////                        Request request = requestBuilder.build();
+////                        return chain.proceed(request);
+//                        Request original = chain.request();
+//                        Request newRequest = original.newBuilder()
+////                                .addHeader("Content-Type", "application/json")
+//                                .addHeader("Authorization", "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE1ODMwNTE5NDB9.B6tvyaGFChKgwJDhIg43TnyLb3LiaoOM1ExWFINIf9A")
+//                                .method(original.method(), original.body())
+//                                .build();
+//                        return chain.proceed(newRequest);
+//                    }
+//                }
+//
+//                );
         return builder.build();
 
     }
