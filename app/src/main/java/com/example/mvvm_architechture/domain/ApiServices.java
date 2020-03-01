@@ -7,6 +7,6 @@ import retrofit2.http.Body;
 import retrofit2.http.POST;
 
 public interface ApiServices {
-    @POST("user/home")
+    @POST("app/user/home")
     Single<TransactionsConversationServerModel> getTransactionsConversationServerModel(@Body LastTime lastTime);
 }

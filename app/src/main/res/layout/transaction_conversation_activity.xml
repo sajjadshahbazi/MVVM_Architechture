@@ -1,6 +1,153 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.transaction.TransactionActivity"
+    app:layoutDescription="@xml/collapsing_toolbar"
+    tools:showPaths="true">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/transactionsList"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_image" />
+
+    <Space
+        android:id="@+id/leftSpace"
+        android:layout_width="16dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Space
+        android:id="@+id/rightSpace"
+        android:layout_width="16dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/backHomeBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:layout_margin="8dp"
+        app:srcCompat="@drawable/ic_search"
+        android:tint="?android:attr/textColorPrimaryInverse"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:elevation="1dp"
+
+        />
+
+    <ImageView
+        android:id="@+id/drawerBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_burger_menu"
+        android:tint="?android:attr/textColorPrimaryInverse"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:elevation="1dp"
+        android:padding="8dp"
+        android:layout_margin="8dp"
+        />
+
+    <ImageView
+        android:id="@+id/toolbar_image"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@null"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/title"
+        app:layout_constraintBottom_toBottomOf="@id/title"
+        app:layout_constraintTop_toTopOf="@+id/title"
+        android:fitsSystemWindows="true"
+        android:scaleType="center"
+        android:background="@drawable/ic_prominent_header"
+        />
+
+    <ImageView
+        android:id="@+id/addTv"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@null"
+        app:layout_constraintLeft_toRightOf="@+id/leftSpace"
+        app:layout_constraintBottom_toBottomOf="@id/title"
+        app:layout_constraintTop_toTopOf="@+id/title"
+        android:fitsSystemWindows="true"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/ic_main_plus"
+        />
+
+    <TextView
+        android:id="@+id/balanceNameTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="موجودی"
+        android:textSize="12sp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/title"
+        app:layout_constraintRight_toRightOf="@+id/title"
+        android:textColor="@android:color/darker_gray"
+        app:layout_constraintVertical_chainStyle="packed"
+        />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Sajjad"
+        app:layout_constraintBottom_toBottomOf="@id/toolbar_image"
+        app:layout_constraintTop_toTopOf="@+id/balanceNameTv"
+        app:layout_constraintBottom_toTopOf="@+id/monetaryUnitTv"
+        app:layout_constraintLeft_toRightOf="@+id/addTv"
+        app:layout_constraintRight_toLeftOf="@+id/avatarImg"
+        android:textColor="?android:attr/textColorPrimaryInverse"
+        android:textSize="38sp"
+        android:textStyle="bold"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintVertical_chainStyle="packed"
+        android:includeFontPadding="false"
+        android:lineSpacingExtra="0dp"
+        />
+
+    <TextView
+        android:id="@+id/monetaryUnitTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="تومان"
+        android:textSize="12sp"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:layout_constraintLeft_toLeftOf="@+id/title"
+        app:layout_constraintVertical_chainStyle="packed"
+        android:includeFontPadding="false"
+        android:textColor="@android:color/white"
+        />
+
+    <ImageView
+        android:id="@+id/avatarImg"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@null"
+        app:layout_constraintRight_toLeftOf="@+id/rightSpace"
+        app:layout_constraintBottom_toBottomOf="@id/title"
+        app:layout_constraintTop_toTopOf="@+id/title"
+        android:fitsSystemWindows="true"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/ic_main_plus"
+        />
+
+
+
+</androidx.constraintlayout.motion.widget.MotionLayout>
