@@ -3,21 +3,17 @@ package com.example.mvvm_architechture.views.transaction;
 
 import android.os.Bundle;
 import android.widget.ImageView;
-
 import androidx.lifecycle.ViewModel;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.mvvm_architechture.R;
 import com.example.mvvm_architechture.base.BaseActivity;
 import com.example.mvvm_architechture.viewmodels.transaction.TransactionViewModel;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import butterknife.BindView;
 
 
@@ -31,17 +27,16 @@ public class TransactionActivity extends BaseActivity<TransactionViewModel> {
     private TransactionAdapter mAdapter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        observableViewModel();
-        Glide.with(this).load("https://banner2.cleanpng.com/20171128/5d2/gold-soccer-ball-png-clip-art-image-5a1d466b159ac0.0656563615118680110885.jpg").apply(new RequestOptions().circleCrop()).into(avatarImg);
+    public Class<TransactionViewModel> getViewModel() {
+        return TransactionViewModel.class;
     }
 
     @Override
-    public void getViewModel(ViewModel viewModelP) {
-       viewModel = (TransactionViewModel) viewModelP;
+    protected void onCreate(Bundle instance, TransactionViewModel viewModel) {
+        this.viewModel = viewModel;
+        observableViewModel();
+        Glide.with(this).load("https://banner2.cleanpng.com/20171128/5d2/gold-soccer-ball-png-clip-art-image-5a1d466b159ac0.0656563615118680110885.jpg").apply(new RequestOptions().circleCrop()).into(avatarImg);
     }
-
 
     @Override
     protected int layoutRes() {
