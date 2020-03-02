@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:motion="http://schemas.android.com/tools">
 
     <Transition
         app:constraintSetEnd="@id/collapsed"
@@ -75,7 +76,7 @@
     <ConstraintSet android:id="@+id/collapsed">
         <Constraint
             android:id="@id/toolbar_image"
-            android:layout_height="80dp"
+            android:layout_height="60dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -88,7 +89,6 @@
             android:id="@+id/balanceNameTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="@+id/toolbar_image"
             app:layout_constraintBottom_toTopOf="@+id/title"
             app:layout_constraintLeft_toLeftOf="@+id/title"
             app:layout_constraintRight_toRightOf="@+id/title"
@@ -107,7 +107,10 @@
             app:layout_constraintLeft_toRightOf="@+id/addTv"
             app:layout_constraintRight_toLeftOf="@+id/avatarImg"
             app:layout_constraintTop_toTopOf="@id/toolbar_image"
-            />
+            >
+
+
+        </Constraint>
 
         <Constraint
             android:id="@+id/monetaryUnitTv"
@@ -115,8 +118,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/title"
             app:layout_constraintLeft_toLeftOf="@+id/title"
-            app:layout_constraintRight_toRightOf="@+id/title"
-            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintBottom_toBottomOf="@+id/toolbar_image"
             android:scaleX="0.7"
             android:scaleY="0.7"
             />
@@ -127,14 +129,18 @@
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="@+id/backHomeBtn"
             app:layout_constraintLeft_toRightOf="@+id/backHomeBtn"
-            app:layout_constraintTop_toTopOf="@+id/backHomeBtn" />
+            app:layout_constraintTop_toTopOf="@+id/backHomeBtn"
+            android:layout_marginLeft="8dp"
+            />
         <Constraint
             android:id="@+id/avatarImg"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="@+id/backHomeBtn"
             app:layout_constraintRight_toLeftOf="@+id/drawerBtn"
-            app:layout_constraintTop_toTopOf="@+id/backHomeBtn" />
+            app:layout_constraintTop_toTopOf="@+id/backHomeBtn"
+            android:layout_marginRight="8dp"
+            />
     </ConstraintSet>
 
 </MotionScene>
