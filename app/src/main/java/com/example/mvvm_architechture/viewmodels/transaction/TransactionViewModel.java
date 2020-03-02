@@ -3,6 +3,8 @@ package com.example.mvvm_architechture.viewmodels.transaction;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
+
+import com.example.mvvm_architechture.base.models.ErrorModel;
 import com.example.mvvm_architechture.domain.Repository;
 import com.example.mvvm_architechture.domain.repomodels.TransactionsConversationRepoModel;
 import com.example.mvvm_architechture.utils.Mapper;
@@ -19,7 +21,7 @@ public class TransactionViewModel extends ViewModel {
     private CompositeDisposable disposable;
 
     private final MutableLiveData<TransactionsConversationUIModel> repos = new MutableLiveData<>();
-    private final MutableLiveData<Boolean> repoLoadError = new MutableLiveData<>();
+    private final MutableLiveData<ErrorModel> error = new MutableLiveData<ErrorModel>(new ErrorModel());
     private final MutableLiveData<Boolean> loading = new MutableLiveData<>();
 
     @Inject
@@ -33,9 +35,10 @@ public class TransactionViewModel extends ViewModel {
     }
 
 //    public LiveData<TransactionsConversationUIModel> getTransactionsConversation() { return repos; }
-    public LiveData<Boolean> getError() {
-        return repoLoadError;
+    public LiveData<ErrorModel> getError() {
+        return error;
     }
+
     public LiveData<Boolean> getLoading() {
         return loading;
     }
@@ -46,13 +49,17 @@ public class TransactionViewModel extends ViewModel {
                 .observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<TransactionsConversationRepoModel>() {
                     @Override
                     public void onSuccess(TransactionsConversationRepoModel value) {
-                        repoLoadError.setValue(false);
+                        error.setValue(new ErrorModel().setIs(false));
                         repos.setValue(transactionsConversationRepoUiMapper.map(value));
                         loading.setValue(false);
                     }
                     @Override
                     public void onError(Throwable e) {
-                        repoLoadError.setValue(true);
+                        if (e!=null && e.getMessage()!=null){
+                            error.setValue(new ErrorModel().setIs(true).setMsg(e.getMessage()));
+                        }else {
+                            error.setValue(new ErrorModel().setIs(true));
+                        }
                         loading.setValue(false);
                     }
                 }));

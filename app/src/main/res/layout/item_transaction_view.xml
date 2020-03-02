@@ -2,7 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <Space
         android:id="@+id/space01"
@@ -26,8 +27,8 @@
 
     <ImageView
         android:id="@+id/avatarDestinationImg"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
         android:layout_marginTop="8dp"
         android:layout_marginRight="16dp"
         app:layout_constraintRight_toRightOf="parent"
@@ -53,10 +54,50 @@
         app:layout_constraintTop_toBottomOf="@+id/name"
         app:layout_constraintRight_toRightOf="@+id/name"
         android:layout_marginRight="4dp"
-        android:text="12:48"
+        android:text="18:48"
         android:textSize="8dp"
         android:textColor="@color/grey_l2"
+        android:id="@+id/timeTransactionTv"
         />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="150,000"
+        app:layout_constraintTop_toTopOf="@+id/name"
+        app:layout_constraintBottom_toBottomOf="@+id/name"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="16dp"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:id="@+id/amountTv"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/amountTv"
+        app:layout_constraintLeft_toLeftOf="@+id/amountTv"
+        android:textColor="@color/grey_l2"
+        android:text="تومان"
+        android:textSize="9sp"
+        />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="@+id/name"
+        app:layout_constraintTop_toBottomOf="@+id/unreadItemCountTv"
+        android:background="@color/grey_l3"
+        android:id="@+id/line1"
+        />
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/line1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

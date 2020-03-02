@@ -3,6 +3,14 @@ package com.example.mvvm_architechture.views.transaction;
 
 import android.os.Bundle;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -10,9 +18,10 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.mvvm_architechture.R;
 import com.example.mvvm_architechture.base.BaseActivity;
+import com.example.mvvm_architechture.utils.ConcurrencyTools;
 import com.example.mvvm_architechture.viewmodels.transaction.TransactionViewModel;
-import java.util.ArrayList;
-import java.util.List;
+import com.google.android.material.navigation.NavigationView;
+
 import butterknife.BindView;
 
 
@@ -21,9 +30,13 @@ public class TransactionActivity extends BaseActivity<TransactionViewModel> {
     private TransactionViewModel viewModel;
     @BindView(R.id.transactionsList)
     RecyclerView transactionsList;
+    @BindView(R.id.title)
+    TextView title;
     @BindView(R.id.avatarImg)
     ImageView avatarImg;
     private TransactionAdapter mAdapter;
+
+    private AppBarConfiguration mAppBarConfiguration;
 
     @Override
     public Class<TransactionViewModel> getViewModel() {
@@ -44,6 +57,7 @@ public class TransactionActivity extends BaseActivity<TransactionViewModel> {
 
     private void observableViewModel() {
         viewModel.fetchTransactions("20200101000000").observe(this, transactionsConversation -> {
+            title.setText(ConcurrencyTools.priceAnnotator(transactionsConversation.getBalance().longValue()));
             mAdapter = new TransactionAdapter(transactionsConversation.getTransactions());
             RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
             transactionsList.setLayoutManager(mLayoutManager);
@@ -51,25 +65,14 @@ public class TransactionActivity extends BaseActivity<TransactionViewModel> {
             transactionsList.setAdapter(mAdapter);
         });
 
-        viewModel.getError().observe(this, isError -> {
-            if (isError != null) if(isError) {
-//                errorTextView.setVisibility(View.VISIBLE);
-//                listView.setVisibility(View.GONE);
-//                errorTextView.setText("An Error Occurred While Loading Data!");
-            }else {
-//                errorTextView.setVisibility(View.GONE);
-//                errorTextView.setText(null);
+        viewModel.getError().observe(this, error -> {
+            if (error.hasError()){
+                Toast.makeText(this, error.getMsg(), Toast.LENGTH_LONG).show();
             }
         });
 
         viewModel.getLoading().observe(this, isLoading -> {
-            if (isLoading != null) {
-//                loadingView.setVisibility(isLoading ? View.VISIBLE : View.GONE);
-                if (isLoading) {
-//                    errorTextView.setVisibility(View.GONE);
-//                    listView.setVisibility(View.GONE);
-                }
-            }
+            // TODO handle error
         });
     }
 }
