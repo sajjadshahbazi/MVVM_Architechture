@@ -78,4 +78,7 @@ ext {
     // epoxy
     epoxyVersion = '3.9.0'
 
+    // room
+    roomVersion = '2.2.4'
+
 }

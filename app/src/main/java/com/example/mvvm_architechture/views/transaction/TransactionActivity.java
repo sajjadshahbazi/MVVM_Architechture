@@ -5,12 +5,6 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,8 +14,6 @@ import com.example.mvvm_architechture.R;
 import com.example.mvvm_architechture.base.BaseActivity;
 import com.example.mvvm_architechture.utils.ConcurrencyTools;
 import com.example.mvvm_architechture.viewmodels.transaction.TransactionViewModel;
-import com.google.android.material.navigation.NavigationView;
-
 import butterknife.BindView;
 
 
@@ -35,8 +27,6 @@ public class TransactionActivity extends BaseActivity<TransactionViewModel> {
     @BindView(R.id.avatarImg)
     ImageView avatarImg;
     private TransactionAdapter mAdapter;
-
-    private AppBarConfiguration mAppBarConfiguration;
 
     @Override
     public Class<TransactionViewModel> getViewModel() {

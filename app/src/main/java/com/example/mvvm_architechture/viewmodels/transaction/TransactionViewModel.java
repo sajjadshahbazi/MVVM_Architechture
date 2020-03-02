@@ -12,6 +12,7 @@ import com.example.mvvm_architechture.views.transaction.TransactionsConversation
 import javax.inject.Inject;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.functions.Function;
 import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;
 
@@ -34,11 +35,9 @@ public class TransactionViewModel extends ViewModel {
 //        fetchRepos();
     }
 
-//    public LiveData<TransactionsConversationUIModel> getTransactionsConversation() { return repos; }
     public LiveData<ErrorModel> getError() {
         return error;
     }
-
     public LiveData<Boolean> getLoading() {
         return loading;
     }
@@ -49,6 +48,7 @@ public class TransactionViewModel extends ViewModel {
                 .observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<TransactionsConversationRepoModel>() {
                     @Override
                     public void onSuccess(TransactionsConversationRepoModel value) {
+                        repoRepository.insertToDataBase(value);
                         error.setValue(new ErrorModel().setIs(false));
                         repos.setValue(transactionsConversationRepoUiMapper.map(value));
                         loading.setValue(false);

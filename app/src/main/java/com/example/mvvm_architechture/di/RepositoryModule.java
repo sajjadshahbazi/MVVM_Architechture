@@ -6,6 +6,8 @@ import com.example.mvvm_architechture.domain.RemoteData;
 import com.example.mvvm_architechture.domain.RemoteDataImpl;
 import com.example.mvvm_architechture.domain.Repository;
 import com.example.mvvm_architechture.domain.RepositoryImpl;
+import com.example.mvvm_architechture.domain.local.PreferencesHelper;
+import com.example.mvvm_architechture.domain.local.PreferencesHelperImpl;
 import com.example.mvvm_architechture.domain.transaction.TransactionDomainModule;
 
 import dagger.Binds;
@@ -21,4 +23,6 @@ abstract class RepositoryModule {
     abstract LocalData bindLocalService(LocalDataImpl localService);
     @Binds
     abstract RemoteData bindRemoteData(RemoteDataImpl remoteService);
+    @Binds
+    abstract PreferencesHelper bindPreferencesHelper(PreferencesHelperImpl preferencesHelper);
 }
