@@ -21,7 +21,7 @@ public class TransactionServerModel {
     private Integer unreadChatCount;
     @SerializedName("update_time")
     @Expose
-    private Integer updateTime;
+    private Long updateTime;
     @SerializedName("first_name")
     @Expose
     private String firstName;
@@ -72,11 +72,11 @@ public class TransactionServerModel {
         this.unreadChatCount = unreadChatCount;
     }
 
-    public Integer getUpdateTime() {
+    public Long getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(Integer updateTime) {
+    public void setUpdateTime(Long updateTime) {
         this.updateTime = updateTime;
     }
 

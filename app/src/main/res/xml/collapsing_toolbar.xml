@@ -137,8 +137,8 @@
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="@+id/backHomeBtn"
-            app:layout_constraintRight_toLeftOf="@+id/drawerBtn"
             app:layout_constraintTop_toTopOf="@+id/backHomeBtn"
+            app:layout_constraintRight_toLeftOf="@+id/drawerBtn"
             android:layout_marginRight="8dp"
             />
     </ConstraintSet>

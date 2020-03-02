@@ -4,7 +4,7 @@ import java.util.List;
 
 public class TransactionsConversationUIModel {
     private Double balance;
-    private Integer lastGetTime;
+    private Long lastGetTime;
     private Integer responseCode;
     private String responseMessage;
     private String responseValue;
@@ -18,11 +18,11 @@ public class TransactionsConversationUIModel {
         this.balance = balance;
     }
 
-    public Integer getLastGetTime() {
+    public Long getLastGetTime() {
         return lastGetTime;
     }
 
-    public void setLastGetTime(Integer lastGetTime) {
+    public void setLastGetTime(Long lastGetTime) {
         this.lastGetTime = lastGetTime;
     }
 

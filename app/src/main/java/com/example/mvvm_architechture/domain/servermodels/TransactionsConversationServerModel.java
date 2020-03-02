@@ -2,7 +2,6 @@ package com.example.mvvm_architechture.domain.servermodels;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +11,7 @@ public class TransactionsConversationServerModel {
         private Double balance = 0.0;
         @SerializedName("last_get_time")
         @Expose
-        private Integer lastGetTime=-1;
+        private Long lastGetTime = -1L;
         @SerializedName("response_code")
         @Expose
         private Integer responseCode=-1;
@@ -34,11 +33,11 @@ public class TransactionsConversationServerModel {
         this.balance = balance;
     }
 
-        public Integer getLastGetTime() {
+        public Long getLastGetTime() {
         return lastGetTime;
     }
 
-        public void setLastGetTime(Integer lastGetTime) {
+        public void setLastGetTime(Long lastGetTime) {
         this.lastGetTime = lastGetTime;
     }
 

@@ -3,7 +3,6 @@ package com.example.mvvm_architechture.views.transaction;
 
 import android.os.Bundle;
 import android.widget.ImageView;
-import androidx.lifecycle.ViewModel;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -45,52 +44,11 @@ public class TransactionActivity extends BaseActivity<TransactionViewModel> {
 
     private void observableViewModel() {
         viewModel.fetchTransactions("20200101000000").observe(this, transactionsConversation -> {
-            List<TransactionUIModel> tempList = new ArrayList<TransactionUIModel>();
-            TransactionUIModel transactionUIModel = new TransactionUIModel();
-            transactionUIModel.setFirstName("200 but Has Error");
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            mAdapter = new TransactionAdapter(tempList);
+            mAdapter = new TransactionAdapter(transactionsConversation.getTransactions());
             RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
             transactionsList.setLayoutManager(mLayoutManager);
             transactionsList.setItemAnimator(new DefaultItemAnimator());
             transactionsList.setAdapter(mAdapter);
-//            mAdapter = new TransactionAdapter(transactionsConversation.getTransactions());
-//            RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-//            transactionsList.setLayoutManager(mLayoutManager);
-//            transactionsList.setItemAnimator(new DefaultItemAnimator());
-//            transactionsList.setAdapter(mAdapter);
         });
 
         viewModel.getError().observe(this, isError -> {
@@ -102,48 +60,6 @@ public class TransactionActivity extends BaseActivity<TransactionViewModel> {
 //                errorTextView.setVisibility(View.GONE);
 //                errorTextView.setText(null);
             }
-            List<TransactionUIModel> tempList = new ArrayList<TransactionUIModel>();
-            TransactionUIModel transactionUIModel = new TransactionUIModel();
-            transactionUIModel.setFirstName("Has Error");
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            tempList.add(transactionUIModel);
-            mAdapter = new TransactionAdapter(tempList);
-            RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-            transactionsList.setLayoutManager(mLayoutManager);
-            transactionsList.setItemAnimator(new DefaultItemAnimator());
-            transactionsList.setAdapter(mAdapter);
-
         });
 
         viewModel.getLoading().observe(this, isLoading -> {

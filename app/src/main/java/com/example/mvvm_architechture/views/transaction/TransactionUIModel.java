@@ -6,7 +6,7 @@ public class TransactionUIModel {
     private Integer tranId = -1;
     private int type = -1;
     private Integer unreadChatCount = -1;
-    private Integer updateTime = -1;
+    private Long updateTime = -1L;
     private String firstName = "";
     private String lastName = "";
     private Integer userId = -1;
@@ -40,10 +40,10 @@ public class TransactionUIModel {
     public void setUnreadChatCount(Integer unreadChatCount) {
         this.unreadChatCount = unreadChatCount;
     }
-    public Integer getUpdateTime() {
+    public Long getUpdateTime() {
         return updateTime;
     }
-    public void setUpdateTime(Integer updateTime) {
+    public void setUpdateTime(Long updateTime) {
         this.updateTime = updateTime;
     }
     public String getFirstName() {

@@ -104,7 +104,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="Sajjad"
+        android:text="350,000"
         app:layout_constraintBottom_toBottomOf="@id/toolbar_image"
         app:layout_constraintTop_toTopOf="@+id/balanceNameTv"
         app:layout_constraintBottom_toTopOf="@+id/monetaryUnitTv"
@@ -117,7 +117,6 @@
         app:layout_constraintVertical_chainStyle="packed"
         android:includeFontPadding="false"
         android:lineSpacingExtra="0dp"
-        android:background="@android:color/holo_blue_bright"
         />
 
     <TextView
