@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.mvvm_architechture.R;
 import com.example.mvvm_architechture.base.BaseActivity;
@@ -37,7 +38,9 @@ public class TransactionActivity extends BaseActivity<TransactionViewModel> {
     protected void onCreate(Bundle instance, TransactionViewModel viewModel) {
         this.viewModel = viewModel;
         observableViewModel();
-        Glide.with(this).load("https://banner2.cleanpng.com/20171128/5d2/gold-soccer-ball-png-clip-art-image-5a1d466b159ac0.0656563615118680110885.jpg").apply(new RequestOptions().circleCrop()).into(avatarImg);
+        Glide.with(this).load("https://banner2.cleanpng.com/20171128/5d2/gold-soccer-ball-png-clip-art-image-5a1d466b159ac0.0656563615118680110885.jpg")
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .apply(new RequestOptions().circleCrop()).into(avatarImg);
     }
 
     @Override
@@ -46,13 +49,14 @@ public class TransactionActivity extends BaseActivity<TransactionViewModel> {
     }
 
     private void observableViewModel() {
-        viewModel.fetchTransactions("20200101000000").observe(this, transactionsConversation -> {
+        viewModel.fetchTrans("20200101000000").observe(this, transactionsConversation -> {
             title.setText(ConcurrencyTools.priceAnnotator(transactionsConversation.getBalance().longValue()));
             mAdapter = new TransactionAdapter(transactionsConversation.getTransactions());
             RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
             transactionsList.setLayoutManager(mLayoutManager);
             transactionsList.setItemAnimator(new DefaultItemAnimator());
             transactionsList.setAdapter(mAdapter);
+            Toast.makeText(this, "emit items", Toast.LENGTH_LONG).show();
         });
 
         viewModel.getError().observe(this, error -> {
@@ -62,7 +66,7 @@ public class TransactionActivity extends BaseActivity<TransactionViewModel> {
         });
 
         viewModel.getLoading().observe(this, isLoading -> {
-            // TODO handle error
+            // TODO handle loading
         });
     }
 }

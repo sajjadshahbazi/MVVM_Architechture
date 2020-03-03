@@ -1,9 +1,7 @@
 package com.example.mvvm_architechture.domain;
 
 
-import com.example.mvvm_architechture.domain.repomodels.TransactionRepoModel;
 import com.example.mvvm_architechture.domain.repomodels.TransactionsConversationRepoModel;
-import java.util.List;
 import io.reactivex.Completable;
 import io.reactivex.Single;
 

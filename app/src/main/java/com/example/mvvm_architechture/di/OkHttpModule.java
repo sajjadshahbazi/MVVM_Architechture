@@ -39,7 +39,7 @@ public class OkHttpModule {
                         Request original = chain.request();
                         Request newRequest = original.newBuilder()
                                 .addHeader("Accept", "application/json")
-                                .addHeader("Authorization", "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1ODMyMTc4NzEsInVzZXJfaWQiOjJ9.Fyqqqatez9I30h8m0RQesyue0rHt77c1Ki034mz2IjM")
+                                .addHeader("Authorization", "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1ODMzMDY3NjMsInVzZXJfaWQiOjJ9.za5lq_aSsSrW0idqlWoSr5O1-46b95G-sED_0YTKQXY")
                                 .method(original.method(), original.body())
                                 .build();
                         return chain.proceed(newRequest);

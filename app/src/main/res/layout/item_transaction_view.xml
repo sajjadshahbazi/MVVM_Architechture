@@ -13,7 +13,7 @@
         app:layout_constraintRight_toRightOf="@+id/avatarDestinationImg" />
 
     <TextView
-        android:id="@+id/unreadItemCountTv"
+        android:id="@+id/unreadMsgCountTv"
         android:layout_width="14dp"
         android:layout_height="14dp"
         app:layout_constraintLeft_toLeftOf="@+id/space01"
@@ -88,7 +88,7 @@
         android:layout_height="1dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="@+id/name"
-        app:layout_constraintTop_toBottomOf="@+id/unreadItemCountTv"
+        app:layout_constraintTop_toBottomOf="@+id/unreadMsgCountTv"
         android:background="@color/grey_l3"
         android:id="@+id/line1"
         />

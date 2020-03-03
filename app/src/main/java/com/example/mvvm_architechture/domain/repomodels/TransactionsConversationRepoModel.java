@@ -1,13 +1,14 @@
 package com.example.mvvm_architechture.domain.repomodels;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TransactionsConversationRepoModel {
-    private Double balance;
-    private Long lastGetTime;
-    private String responseMessage;
-    private String responseValue;
-    private List<TransactionRepoModel> transactions = null;
+    private Double balance = 0.0;
+    private Long lastGetTime = -1L;
+    private String responseMessage = "";
+    private String responseValue = "";
+    private List<TransactionRepoModel> transactions = new ArrayList<>();
 
     public Double getBalance() {
         return balance;

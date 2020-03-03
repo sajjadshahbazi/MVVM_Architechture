@@ -2,7 +2,6 @@ package com.example.mvvm_architechture.domain;
 
 import com.example.mvvm_architechture.domain.entitiesmodels.TransactionEntity;
 import com.example.mvvm_architechture.domain.local.PreferencesHelper;
-import com.example.mvvm_architechture.domain.repomodels.TransactionRepoModel;
 import com.example.mvvm_architechture.domain.repomodels.TransactionsConversationRepoModel;
 import com.example.mvvm_architechture.domain.servermodels.TransactionsConversationServerModel;
 import com.example.mvvm_architechture.utils.BiMapper;
@@ -56,7 +55,12 @@ public class RepositoryImpl implements Repository {
         return localService.databaseProvider().transactionDao().getTransactions().map(new Function<List<TransactionEntity>, TransactionsConversationRepoModel>() {
             @Override
             public TransactionsConversationRepoModel apply(List<TransactionEntity> transactionEntities) throws Exception {
-                return transactionsConversationRepoEntityMapper.mapBack(transactionEntities);
+                if (transactionEntities != null && transactionEntities.size()>0){
+                    return transactionsConversationRepoEntityMapper.mapBack(transactionEntities);
+                }else {
+                    return new TransactionsConversationRepoModel();
+                }
+
             }
         });
     }

@@ -13,7 +13,6 @@ import okhttp3.OkHttpClient;
 @Module(includes = OkHttpModule.class)
 public class NetworkModule {
 
-
     @Singleton
     @Provides
     static Retrofit provideRetrofit(OkHttpClient client) {
