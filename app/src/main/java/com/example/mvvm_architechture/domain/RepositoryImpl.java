@@ -16,7 +16,7 @@ public class RepositoryImpl implements Repository {
     @Inject
     RemoteData remoteData;
     @Inject
-    LocalData localService;
+    RoomHelper localService;
     @Inject
     Mapper<TransactionsConversationServerModel, TransactionsConversationRepoModel> transactionsConversationServerRepoMapper;
     @Inject

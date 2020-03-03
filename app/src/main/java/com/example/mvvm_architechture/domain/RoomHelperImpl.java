@@ -8,9 +8,9 @@ import com.example.mvvm_architechture.domain.local.AppDatabase;
 import javax.inject.Inject;
 import static com.example.mvvm_architechture.utils.ConstantsApplication.TRANSACTION_DATA_BASE_NAME;
 
-public class LocalDataImpl implements LocalData {
+public class RoomHelperImpl implements RoomHelper {
     @Inject
-    LocalDataImpl(){}
+    RoomHelperImpl(){}
     @Inject
     Context context;
 
